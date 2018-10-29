@@ -19,6 +19,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    self.view.backgroundColor = MakeColor(246, 246, 246);;
+    
     NSArray *timeArray = @[@"18:00",@"19:00",@"20:00",@"21:00",@"22:00",@"23:00",@"24:00"];
     NSArray *titleArray = @[@"即将开始",@"马上开始",@"已经开始",@"疯狂抢购中",@"马上开始",@"已经停止",@"已经停止"];
     
