@@ -1,4 +1,4 @@
 # SecondsKillDemo
 ----------------------
-![image](https://github.com/feibaichen/SecondsKillDemo/blob/masterSim.png)
+![image](https://github.com/feibaichen/SecondsKillDemo/blob/master/Sim.png)
 ----------------
