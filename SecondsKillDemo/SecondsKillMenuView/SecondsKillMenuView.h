@@ -25,8 +25,10 @@
 @property(nonatomic,assign) CGRect menuBaseViewFrame;
 //滚动菜单栏 滚动ScrollView
 @property(nonatomic,strong) UIScrollView *menuScrollView;
-//滚动菜单栏 菜单数组
-@property(nonatomic,strong) NSArray *menuArray;
+//滚动菜单栏 时间数组
+@property(nonatomic,strong) NSArray *timeArray;
+//滚动菜单栏 标题数组
+@property(nonatomic,strong) NSArray *titleArray;
 //滚动菜单栏 显示几个可视菜单
 @property(nonatomic,assign) int menuVisibleNum;
 //滚动菜单栏 中间红色指示器
@@ -42,6 +44,6 @@
 @property (strong,nonatomic)UIButton * selectedBtn2;
 
 
-- (void)setMenuArray:(NSArray *)Array andNumOfShow:(int)nums;
+- (void)setMenuTimeArray:(NSArray *)timeArray andTitleArray:(NSArray *)titleArray andNumOfShow:(int)nums;
 - (void)setPageContentScrollViewFrame:(CGRect)frame;
 @end

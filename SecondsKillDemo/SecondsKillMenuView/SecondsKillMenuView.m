@@ -24,29 +24,29 @@
 }
 
 #pragma mark - 菜单menuArray - 初始化菜单数组 数量
-- (void)setMenuArray:(NSArray *)Array andNumOfShow:(int)nums{
+- (void)setMenuTimeArray:(NSArray *)timeArray andTitleArray:(NSArray *)titleArray andNumOfShow:(int)nums{
     
-    _menuArray = [NSArray arrayWithArray:Array];
+    _timeArray = [NSArray arrayWithArray:timeArray];
+    _titleArray = [NSArray arrayWithArray:titleArray];
+    
     _menuVisibleNum = nums;
     _menuWidth = self.frame.size.width/nums;
     
-    self.pageContentScrollView.contentSize = CGSizeMake(_menuArray.count * SCW, SCH);
+    self.pageContentScrollView.contentSize = CGSizeMake(_timeArray.count * SCW, SCH);
     
     [self addSubview:self.menuCenterRedIndicatorView];
-    
-    NSArray *timeStausArray = @[@"即将开始",@"马上开始",@"已经开始",@"疯狂抢购中",@"马上开始",@"已经停止",@"已经停止"];
     
     //添加指示小三角形
     self.menuCenterRedtriangleView.transform = CGAffineTransformMakeRotation(M_PI * 0.25);
     [self.menuCenterRedIndicatorView addSubview:self.menuCenterRedtriangleView];
     
-    for (int i = 2; i < _menuArray.count + 2; i++) {
+    for (int i = 2; i < _timeArray.count + 2; i++) {
         
         //20:00 - 即将开始
         _menuClickView = [[TimeView alloc] initWithFrame:CGRectMake(_menuWidth * i, 0, _menuWidth, self.frame.size.height)];
         
-        [_menuClickView.startTime setTitle:[NSString stringWithFormat:@"%@",_menuArray[i - 2]] forState:UIControlStateNormal];
-        [_menuClickView.timeStatus setTitle:timeStausArray[i - 2] forState:UIControlStateNormal];
+        [_menuClickView.startTime setTitle:[NSString stringWithFormat:@"%@",_timeArray[i - 2]] forState:UIControlStateNormal];
+        [_menuClickView.timeStatus setTitle:_titleArray[i - 2] forState:UIControlStateNormal];
         _menuClickView.userInteractionEnabled = YES;
         _menuClickView.tag = 200 + i;
         
@@ -104,8 +104,8 @@
         NSLog(@"x1 = %f,x2 = %d ",x1,x2);
         
         
-        if (x2 >= _menuArray.count) {
-            x2 = (int)self.menuArray.count - 1;
+        if (x2 >= _timeArray.count) {
+            x2 = (int)self.timeArray.count - 1;
         }
         
         if ( x2 < 1) {
@@ -139,8 +139,8 @@
         //NSLog(@"x1 = %f,x2 = %d ",x1,x2);
         
         
-        if (x2 >= _menuArray.count) {
-            x2 = (int)self.menuArray.count - 1;
+        if (x2 >= _timeArray.count) {
+            x2 = (int)self.timeArray.count - 1;
         }
         
         if ( x2 < 1) {
@@ -170,7 +170,7 @@
     if (!_menuScrollView) {
         _menuScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
         _menuScrollView.backgroundColor = [UIColor clearColor];
-        _menuScrollView.contentSize = CGSizeMake((_menuArray.count + 4) * _menuWidth, self.frame.size.height);
+        _menuScrollView.contentSize = CGSizeMake((_timeArray.count + 4) * _menuWidth, self.frame.size.height);
         _menuScrollView.contentOffset = CGPointMake(0, 0);
         _menuScrollView.showsHorizontalScrollIndicator = NO;
         _menuScrollView.userInteractionEnabled = YES;
