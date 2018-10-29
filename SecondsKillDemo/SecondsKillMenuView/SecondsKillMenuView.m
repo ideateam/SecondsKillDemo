@@ -199,7 +199,7 @@
 - (UIScrollView *)pageContentScrollView{
     if (!_pageContentScrollView) {
         _pageContentScrollView = [[UIScrollView alloc] init];
-        _pageContentScrollView.backgroundColor = [UIColor whiteColor];
+        _pageContentScrollView.backgroundColor = MakeColor(242, 242, 242);
         _pageContentScrollView.pagingEnabled = YES;
         _pageContentScrollView.delegate = self;
         _pageContentScrollView.contentOffset = CGPointZero;
